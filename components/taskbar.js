@@ -27,6 +27,9 @@ export default function Taskbar() {
             <span className={styles.bold}>Binbows</span>69
           </p>
         </div>
+        <div>
+          <p>Nothing to see here yet</p>
+        </div>
       </div>
       <div className={styles.taskbar}>
         <button
@@ -51,6 +54,8 @@ export default function Taskbar() {
         </div>
         <div className={styles.openPrograms}>
           <div className={styles.divider} />
+          <div className={styles.dragHandle} />
+          <p>Haha programs go brrrr</p>
         </div>
       </div>
     </div>

@@ -42,6 +42,8 @@
   box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey,
     inset 2px 2px #dfdfdf;
   transition: linear 150ms;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .startMenu .sidebar {
@@ -96,7 +98,7 @@
 
 .pinned {
   height: 22px;
-  width: 76px;
+  width: 77px;
   margin-right: 4px;
   display: flex;
   align-items: center;
@@ -109,7 +111,6 @@
 
 .openPrograms {
   height: 22px;
-  width: 76px;
   margin-right: 4px;
   display: flex;
   align-items: center;

@@ -15,7 +15,9 @@ export default function Home() {
         <title>WIP!! Michaelsoft Binbows</title>
       </Head>
       <section>
-        <p>In case you couldn't tell, this is still very much a work in progress</p>
+        <p>
+          In case you couldn't tell, this is still very much a work in progress
+        </p>
         <Link href="/qwertyuiop">Here's a 404 page if you'd like.</Link>
         <Taskbar />
       </section>

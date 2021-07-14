@@ -42,13 +42,14 @@
   background: #aaaaaa;
   color: #0000aa;
   font-size: x-large;
-  width: 80px;
+  width: fit-content;
+  padding: 2px;
   margin: auto;
 }
 
-.textcontainer {
-  width: 60%;
-  min-width: 330px;
+.text {
+  width: 80%;
+  max-width: 700px;
   margin: auto;
   font-size: x-large;
   color: white;

@@ -64,7 +64,7 @@ export default function InterwebsNavigator() {
         <iframe
           className={styles.iframe}
           id="interwebsIframe"
-          src="http://theoldnet.com/browser/"
+          src="https://theoldnet.com/browser/"
           title="Interwebs Navigator"
         />
       </div>

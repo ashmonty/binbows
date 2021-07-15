@@ -22,13 +22,13 @@ export default function InterwebsNavigator(props) {
 
   const maximizeInterwebs = () => {
     const interwebs = document.getElementById("interwebs");
-    if (interwebs.style.width === "100vw") {
+    if (interwebs.style.width === "calc(100vw - 6px)") {
       interwebs.style.width = "1000px";
       interwebs.style.height = "700px";
       interwebs.style.top = "100px";
       interwebs.style.left = "150px";
     } else {
-      interwebs.style.width = "100vw";
+      interwebs.style.width = "calc(100vw - 6px)";
       interwebs.style.height = "calc(100vh - 28px)";
       interwebs.style.top = "-2px";
       interwebs.style.left = "-2px";

@@ -29,7 +29,7 @@ export default function Custom404() {
               <div className={styles.text}>
                 <p>An error has occured. To continue:</p>
                 <p>
-                  Click anywhere or press any key to return to the home page.
+                  Press any key or click this page to return to the home page.
                 </p>
                 <p>Error: 404 : P4G3 : N07F0UND</p>
                 <div className={styles.pressDiv}>

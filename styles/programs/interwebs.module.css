@@ -4,6 +4,7 @@
 }
 
 .iframe {
-  width: 996px;
-  height: 700px;
+  width: 100%;
+  height: 100%;
+  padding: none;
 }

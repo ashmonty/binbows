@@ -1,5 +1,5 @@
 import styles from "/styles/Taskbar.module.css";
-import toggleShowWindow from "./utils";
+import * as utils from "./utils";
 
 export default function Taskbar() {
   const toggleStartMenu = () => {
@@ -54,7 +54,7 @@ export default function Taskbar() {
           <img src="/icons/explorer.png" className={styles.icon} />
           <div
             title="Interwebs Navigator"
-            onClick={() => toggleShowWindow("interwebs")}
+            onClick={() => utils.toggleShowWindow("interwebs")}
             className={styles.clickable}
           >
             <img src="/icons/ie.png" className={styles.icon} />
@@ -65,7 +65,7 @@ export default function Taskbar() {
           <div className={styles.dragHandle} />
           <button
             id="interwebsTaskbarBtn"
-            onClick={() => toggleShowWindow("interwebs")}
+            onClick={() => utils.toggleShowWindow("interwebs")}
             style={{ display: "none" }}
           >
             <img src="/icons/ie.png" className={styles.icon} />

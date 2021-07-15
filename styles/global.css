@@ -20,7 +20,7 @@ button {
   max-width: none !important;
   min-height: 0px !important;
   max-height: none !important;
-  cursor: url("/cur/point.png"), pointer;
+  cursor: url("/cur/point.png") 4 0, pointer;
 }
 
 .window-body {

@@ -110,7 +110,7 @@
 }
 
 .clickable {
-  cursor: url("/cur/point.png"), pointer;
+  cursor: url("/cur/point.png") 4 0, pointer;
 }
 
 .openPrograms {

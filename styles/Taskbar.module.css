@@ -109,9 +109,30 @@
   margin: 3px;
 }
 
+.clickable {
+  cursor: url("/cur/point.png"), pointer;
+}
+
 .openPrograms {
   height: 22px;
   margin-right: 4px;
   display: flex;
   align-items: center;
+}
+
+.openPrograms button {
+  display: flex;
+  margin: 2px;
+  height: 22px;
+  align-items: center;
+  padding: 5px;
+}
+
+.openPrograms button:active {
+  padding: 5px !important;
+}
+
+.openPrograms button img {
+  height: 16px;
+  margin-right: 3px;
 }

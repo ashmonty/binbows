@@ -22,3 +22,7 @@ button {
   max-height: none !important;
   cursor: url("/cur/point.png"), pointer;
 }
+
+.window-body {
+  margin: 0px !important;
+}

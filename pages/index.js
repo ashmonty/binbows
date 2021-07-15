@@ -7,6 +7,8 @@ import "98.css";
 import Favicon from "../components/head";
 import Taskbar from "../components/taskbar";
 
+import InternetExplorer from "../components/programs/interwebs";
+
 export default function Home() {
   return (
     <home>
@@ -15,12 +17,16 @@ export default function Home() {
         <title>WIP!! Michaelsoft Binbows</title>
       </Head>
       <section>
+      <p>
+          In case you couldn't tell, this is still very much a work in progress.
+        </p>
         <p>
-          In case you couldn't tell, this is still very much a work in progress
+          Click on the Internet Explorer icon in the taskbar!
         </p>
         <Link href="/qwertyuiop">Here's a 404 page if you'd like.</Link>
-        <Taskbar />
+        <InternetExplorer />
       </section>
+      <Taskbar />
     </home>
   );
 }

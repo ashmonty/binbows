@@ -22,14 +22,14 @@ export default function InterwebsNavigator(props) {
 
   const maximizeInterwebs = () => {
     const interwebs = document.getElementById("interwebs");
-    if (interwebs.style.width === "calc(100vw - 4px)") {
+    if (interwebs.style.width === "calc(100vw - 2px)") {
       interwebs.style.width = "1000px";
       interwebs.style.height = "700px";
       interwebs.style.top = "100px";
       interwebs.style.left = "150px";
     } else {
-      interwebs.style.width = "calc(100vw - 4px)";
-      interwebs.style.height = "calc(100vh - 28px)";
+      interwebs.style.width = "calc(100vw - 2px)";
+      interwebs.style.height = "calc(100vh - 32px)";
       interwebs.style.top = "-2px";
       interwebs.style.left = "-2px";
     }
@@ -54,7 +54,11 @@ export default function InterwebsNavigator(props) {
       }}
     >
       <div class="title-bar" id="interwebsHeader">
-        <div class="title-bar-text">
+        <div
+          class="title-bar-text"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <img src="/icons/ie.png" className={styles.titleBarIcon} />
           Interwebs Navigator - NOTE TO SELF: fix janky drag and resize
         </div>
         <div class="title-bar-controls">
@@ -77,7 +81,7 @@ export default function InterwebsNavigator(props) {
       </div>
       <div
         class="window-body"
-        style={{ width: "calc(100% - 4px)", height: "calc(100% - 24px)" }}
+        style={{ width: "calc(100% - 4px)", height: "calc(100% - 28px)" }}
       >
         <iframe
           className={styles.iframe}

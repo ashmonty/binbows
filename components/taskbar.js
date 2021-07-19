@@ -49,9 +49,9 @@ export default function Taskbar() {
         <div className={styles.pinned}>
           <div className={styles.divider} />
           <div className={styles.dragHandle} />
-          <img src="/icons/desktop.png" className={styles.icon} />
-
           <img src="/icons/explorer.png" className={styles.icon} />
+          <img src="/icons/calculator.png" className={styles.icon} />
+
           <div
             title="Interwebs Navigator"
             onClick={() => utils.toggleShowWindow("interwebs")}

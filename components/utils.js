@@ -7,11 +7,11 @@ export function toggleShowWindow(elementID) {
   if (windowStyle.display === "none") {
     windowStyle.display = "block";
     taskbarBtnStyle.boxShadow =
-      "inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080";
+      "inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf";
   } else {
     windowStyle.display = "none";
     taskbarBtnStyle.boxShadow =
-      "inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf";
+      "inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080";
   }
 }
 

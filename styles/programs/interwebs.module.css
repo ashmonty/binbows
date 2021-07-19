@@ -8,3 +8,7 @@
   height: 100%;
   padding: none;
 }
+
+.titleBarIcon {
+  margin-right: 4px;
+}

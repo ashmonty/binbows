@@ -1,6 +1,9 @@
 import styles from "/styles/Taskbar.module.css";
 import * as utils from "./utils";
 
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 export default function Taskbar() {
   const toggleStartMenu = () => {
     const startMenu = document.getElementById("startMenu");
@@ -15,6 +18,18 @@ export default function Taskbar() {
         "inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf";
     }
   };
+
+  const updateTimeElement = () => {
+    const currentTime = new Date().toLocaleTimeString();
+    const timeElement = document.getElementById("time");
+    timeElement.innerHTML = currentTime;
+  };
+
+  const router = useRouter();
+  useEffect(() => {
+    updateTimeElement();
+    setInterval(updateTimeElement, 1000);
+  });
 
   return (
     <div>
@@ -32,6 +47,7 @@ export default function Taskbar() {
           <p>Nothing to see here yet</p>
         </div>
       </div>
+
       <div className={styles.taskbar}>
         <button
           className={styles.startButton}
@@ -71,6 +87,13 @@ export default function Taskbar() {
             <img src="/icons/ie.png" className={styles.icon} />
             Interwebs Navigator
           </button>
+        </div>
+
+        <div className={styles.rightSection}>
+          <div className={styles.divider} />
+          <div className={styles.clockSection}>
+            <p id="time">4:13</p> {/* Just a random placeholder time */}
+          </div>
         </div>
       </div>
     </div>

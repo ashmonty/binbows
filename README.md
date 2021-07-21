@@ -1,2 +1,2 @@
 # website
-My website at win.montylion.dev I guess
+A web receration of WIndows 98 I guess

@@ -20,7 +20,8 @@ export default function Taskbar() {
   };
 
   const updateTimeElement = () => {
-    const currentTime = new Date().toLocaleTimeString();
+    const date = new Date()
+    const currentTime = `${date.getHours()}:${date.getMinutes()}`
     const timeElement = document.getElementById("time");
     timeElement.innerHTML = currentTime;
   };

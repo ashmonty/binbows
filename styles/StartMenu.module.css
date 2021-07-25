@@ -1,0 +1,51 @@
+@keyframes shwoop {
+  from {
+    bottom: -400px;
+  }
+  to {
+    bottom: 24px;
+  }
+}
+
+.startMenu {
+  position: absolute;
+  background-color: silver;
+  min-width: 200px;
+  height: 400px;
+  bottom: 30px;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey,
+    inset 2px 2px #dfdfdf;
+  display: flex;
+  flex-flow: row nowrap;
+  animation-name: shwoop;
+  animation-duration: 100ms;
+  animation-timing-function: linear;
+}
+
+.startMenu .sidebar {
+  background: rgb(2, 0, 125);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 125, 1) 0%,
+    rgba(2, 0, 247, 1) 10%,
+    rgba(2, 0, 125, 1) 30%,
+    rgba(2, 0, 125, 1) 100%
+  );
+
+  width: 24px;
+  height: 396px;
+  margin: 2px;
+}
+
+.startMenu .sidebar p {
+  position: absolute;
+  left: 5px;
+  width: 20px;
+  height: 392px;
+  margin: auto;
+  writing-mode: vertical-lr;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  margin: 2px;
+  height: 24px;
+  width: 144px;
+  align-items: center;
+  padding: 5px;
+}
+
+.button:active {
+  padding: 5px !important;
+}
+
+.buttonOpen {
+  display: flex;
+  margin: 2px;
+  height: 24px;
+  width: 144px;
+  align-items: center;
+  padding: 5px;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a,
+    inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+
+.buttonOpen:active {
+  padding: 5px !important;
+}
+
+
+.icon {
+  height: 16px;
+  margin-right: 3px;
+}

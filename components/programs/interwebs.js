@@ -1,95 +1,73 @@
 import styles from "/styles/programs/interwebs.module.css";
-import * as utils from "../utils";
 
-import { useEffect } from "react";
+import React from "react";
 
-export default function InterwebsNavigator(props) {
-  useEffect(() => {
-    utils.makeWindowDraggable(document.getElementById("interwebs"));
-  });
+export default class InterwebsNavigator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleState = this.handleState.bind(this);
+  }
 
-  const minimizeInterwebs = () => {
-    utils.toggleShowWindow("interwebs");
-  };
+  handleState(newState) {
+    this.props.setState(newState);
+  }
 
-  const closeInterwebs = () => {
-    document.getElementById("interwebs").style.display = "none";
-    document.getElementById("interwebsTaskbarBtn").style.display = "none";
-    // This resets the "browser" to the homepage
-    const iframe = document.getElementById("interwebsIframe");
-    iframe.src = iframe.src;
-  };
+  render() {
+    if (this.props.state !== "closed") {
+      const toggleMaximise = () => {
+        if (this.props.state === "maximised") {
+          this.handleState("open");
+        } else {
+          this.handleState("maximised");
+        }
+      };
 
-  const maximizeInterwebs = () => {
-    const interwebs = document.getElementById("interwebs");
-    if (interwebs.style.width === "calc(100vw - 2px)") {
-      interwebs.style.width = "1000px";
-      interwebs.style.height = "700px";
-      interwebs.style.top = "100px";
-      interwebs.style.left = "150px";
+      return (
+        <div class={`window ${this.props.state}`} id="interwebs">
+          <div class="title-bar" id="interwebsHeader">
+            <div
+              class="title-bar-text"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <img src="/icons/ie.png" className={styles.titleBarIcon} />
+              Interwebs Navigator - NOTE TO SELF: re-add drag and fix janky
+              resize - [state: {this.props.state}]
+            </div>
+            <div class="title-bar-controls">
+              <button
+                aria-label="Minimize"
+                className={styles.controlButton}
+                onClick={() => this.handleState("minimised")}
+              />
+              <button
+                aria-label={
+                  this.props.state === "open" ? "Maximize" : "Restore"
+                }
+                className={styles.controlButton}
+                onClick={toggleMaximise}
+              />
+              <button
+                aria-label="Close"
+                className={styles.controlButton}
+                onClick={() => this.handleState("closed")}
+              />
+            </div>
+          </div>
+          <div
+            class="window-body"
+            style={{ width: "calc(100% - 4px)", height: "calc(100% - 28px)" }}
+          >
+            <iframe
+              className={styles.iframe}
+              id="interwebsIframe"
+              src="https://theoldnet.com/browser/"
+              title="Interwebs Navigator"
+            />
+          </div>
+        </div>
+      );
     } else {
-      interwebs.style.width = "calc(100vw - 2px)";
-      interwebs.style.height = "calc(100vh - 32px)";
-      interwebs.style.top = "-2px";
-      interwebs.style.left = "-2px";
+      return null;
     }
-  };
-
-  return (
-    <div
-      class="window"
-      id="interwebs"
-      style={{
-        position: "absolute",
-        top: "100px",
-        left: "150px",
-        width: "fit-content",
-        display: "none",
-        width: "1000px",
-        height: "700px",
-        minWidth: "500px",
-        minHeight: "500px",
-        resize: "both",
-        overflow: "auto",
-      }}
-    >
-      <div class="title-bar" id="interwebsHeader">
-        <div
-          class="title-bar-text"
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          <img src="/icons/ie.png" className={styles.titleBarIcon} />
-          Interwebs Navigator - NOTE TO SELF: fix janky drag and resize
-        </div>
-        <div class="title-bar-controls">
-          <button
-            aria-label="Minimize"
-            className={styles.controlButton}
-            onClick={minimizeInterwebs}
-          />
-          <button
-            aria-label="Maximize"
-            className={styles.controlButton}
-            onClick={maximizeInterwebs}
-          />
-          <button
-            aria-label="Close"
-            className={styles.controlButton}
-            onClick={closeInterwebs}
-          />
-        </div>
-      </div>
-      <div
-        class="window-body"
-        style={{ width: "calc(100% - 4px)", height: "calc(100% - 28px)" }}
-      >
-        <iframe
-          className={styles.iframe}
-          id="interwebsIframe"
-          src="https://theoldnet.com/browser/"
-          title="Interwebs Navigator"
-        />
-      </div>
-    </div>
-  );
+  }
 }

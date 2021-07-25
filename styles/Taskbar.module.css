@@ -34,46 +34,6 @@
   padding-right: 4px;
 }
 
-.startMenu {
-  position: absolute;
-  background-color: silver;
-  min-width: 200px;
-  height: 400px;
-  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey,
-    inset 2px 2px #dfdfdf;
-  transition: linear 150ms;
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.startMenu .sidebar {
-  background: rgb(2, 0, 125);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 0, 125, 1) 0%,
-    rgba(2, 0, 247, 1) 10%,
-    rgba(2, 0, 125, 1) 30%,
-    rgba(2, 0, 125, 1) 100%
-  );
-
-  width: 24px;
-  height: 396px;
-  margin: 2px;
-}
-
-.startMenu .sidebar p {
-  position: absolute;
-  left: 5px;
-  width: 20px;
-  height: 392px;
-  margin: auto;
-  writing-mode: vertical-lr;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
-  transform: rotate(180deg);
-}
-
 .bold {
   font-weight: bold;
 }
@@ -119,24 +79,6 @@
   margin-right: 4px;
   display: flex;
   align-items: center;
-}
-
-.openPrograms button {
-  display: flex;
-  margin: 2px;
-  height: 24px;
-  width: 144px;
-  align-items: center;
-  padding: 5px;
-}
-
-.openPrograms button:active {
-  padding: 5px !important;
-}
-
-.openPrograms button img {
-  height: 16px;
-  margin-right: 3px;
 }
 
 .rightSection {

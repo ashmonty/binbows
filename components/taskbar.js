@@ -86,8 +86,7 @@ export default class Taskbar extends React.Component {
 
   componentDidMount() {
     const updateTimeElement = () => {
-      const date = new Date();
-      const currentTime = `${date.getHours()}:${date.getMinutes()}`;
+      const currentTime = `${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
       const timeElement = document.getElementById("time");
       timeElement.innerHTML = currentTime;
     };

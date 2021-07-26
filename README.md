@@ -1,2 +1,2 @@
 # website
-A web receration of WIndows 98 I guess
+A Next.js-based recreation of WIndows 98 (WIP)

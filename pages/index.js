@@ -93,7 +93,7 @@ export default class Home extends React.Component {
               progress)
             </p>
             <p>
-              If you wanna see something cool, click on the Internet Explorer
+              If you wanna see something cool, click on the Netscape Navigator
               icon in the taskbar!
             </p>
             <p>

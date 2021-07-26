@@ -13,7 +13,7 @@ export default class StartMenu extends React.Component {
         <div className={styles.startMenu} id="startMenu">
           <div className={styles.sidebar}>
             <p>
-              <span className={styles.bold}>Binbows</span>69
+              <span style={{fontWeight: "bold"}}>Binbows</span>69
             </p>
           </div>
           <div>

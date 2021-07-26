@@ -27,7 +27,7 @@ export default class programInTaskbar extends React.Component {
               : styles.buttonOpen
           }
         >
-          <img src={`/icons/${this.props.icon}.png`} className={styles.icon} />
+          <img src={`/icons/${this.props.icon}`} className={styles.icon} />
           {this.props.name}
         </button>
       );

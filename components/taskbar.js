@@ -59,7 +59,7 @@ export default class Taskbar extends React.Component {
               onClick={() => this.setInterwebsState("open")}
               className={styles.clickable}
             >
-              <img src="/icons/ie.png" className={styles.icon} />
+              <img src="/icons/netscapeNavigator.png" className={styles.icon} />
             </div>
           </div>
           <div className={styles.openPrograms}>
@@ -68,7 +68,7 @@ export default class Taskbar extends React.Component {
             <ProgramInTaskbar
               setProgramState={this.setInterwebsState}
               programState={interwebsState}
-              icon={"ie"}
+              icon={"netscapeNavigator.png"}
               name={"Interwebs Navigator"}
             />
           </div>

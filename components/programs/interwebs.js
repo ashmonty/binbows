@@ -29,7 +29,7 @@ export default class InterwebsNavigator extends React.Component {
               class="title-bar-text"
               style={{ display: "flex", alignItems: "center" }}
             >
-              <img src="/icons/ie.png" className={styles.titleBarIcon} />
+              <img src="/icons/netscapeNavigator.png" className={styles.titleBarIcon} />
               Interwebs Navigator - NOTE TO SELF: re-add drag and fix janky
               resize - [state: {this.props.state}]
             </div>

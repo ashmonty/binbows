@@ -1,9 +1,30 @@
+:root {
+  --wallpaper: #018281;
+  --button-box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey,
+  inset 2px 2px #dfdfdf;
+}
+
+@font-face {
+  font-family: "Windy";
+  src: url("/assets/fonts/ms_sans_serif.woff") format("woff");
+  src: url("/assets/fonts/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Windy";
+  src: url("/assets/fonts/ms_sans_serif_bold.woff") format("woff");
+  src: url("/assets/fonts/ms_sans_serif_bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Windy", sans-serif;
 }
 
 a {
@@ -14,3 +35,4 @@ a {
 * {
   box-sizing: border-box;
 }
+

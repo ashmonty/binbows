@@ -1,4 +1,4 @@
-import styles from "../styles/components/StartMenu.module.css";
+import styles from "/styles/components/StartMenu.module.css";
 import "98.css"
 
 export default function StartMenu(props) {

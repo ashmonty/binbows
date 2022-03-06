@@ -1,13 +1,14 @@
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 
-import styles from "../styles/components/Taskbar.module.css";
+import styles from "/styles/components/Taskbar.module.css";
 import "98.css";
 
 import Start from "./StartMenu";
+import TaskbarEntry from "./TaskbarEntry";
 
-export default function Taskbar() {
+export default function Taskbar({ windows, setWindows }) {
   const [clock, setClock] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   );
@@ -44,7 +45,20 @@ export default function Taskbar() {
         </button>
         <span className={styles.separator} />
         <span className={styles.handle} />
-        <div className={styles.taskManager} id="task-manager"></div>
+        <div className={styles.taskManager} id="task-manager">
+          {windows.map((window, i) => (
+            <React.Fragment key={i}>
+              {React.createElement(TaskbarEntry, {
+                key: window.index,
+                index: window.index,
+                title: window.title,
+                icon: window.icon,
+                setWindows: setWindows,
+                windows,
+              })}
+            </React.Fragment>
+          ))}
+        </div>
         <span className={styles.clock}>{clock}</span>
       </div>
 

@@ -2,27 +2,28 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import "98.css";
-import styles from "../styles/components/WindowFrame.module.css";
+import styles from "/styles/components/WindowFrame.module.css";
 
 export default function WindowFrame({
   icon,
   title,
-  setAllWindows,
+  setWindows,
   index,
-  allWindows,
+  windows,
   children,
+  style
 }) {
-  function closeWindow(allWindows, setAllWindows) {
-    const updatedWindows = allWindows?.filter(
+  function closeWindow(windows, setWindows) {
+    const updatedWindows = windows?.filter(
       (window) => window.index !== index
     );
-    setAllWindows(updatedWindows);
+    setWindows(updatedWindows);
   }
 
   return (
     <div
       className={classNames({ window: true, [styles.window]: true })}
-      style={{
+      style={style || {
         position: "absolute",
         top: (index + 1) * 24,
         left: (index + 1) * 24,
@@ -38,7 +39,7 @@ export default function WindowFrame({
           <button aria-label="Maximize"></button>
           <button
             aria-label="Close"
-            onClick={() => closeWindow(allWindows, setAllWindows)}
+            onClick={() => closeWindow(windows, setWindows)}
           ></button>
         </div>
       </div>

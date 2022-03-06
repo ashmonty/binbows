@@ -2,4 +2,5 @@
   width: 100vw;
   height: 100vh;
   background: var(--wallpaper);
+  font-family: "Pixelated MS Sans Serif", Arial;
 }

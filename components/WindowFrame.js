@@ -10,7 +10,6 @@ export default function WindowFrame({
   setAllWindows,
   index,
   allWindows,
-  style,
   children,
 }) {
   function closeWindow(allWindows, setAllWindows) {
@@ -23,7 +22,11 @@ export default function WindowFrame({
   return (
     <div
       className={classNames({ window: true, [styles.window]: true })}
-      style={style}
+      style={{
+        position: "absolute",
+        top: (index + 1) * 24,
+        left: (index + 1) * 24,
+      }}
     >
       <div className="title-bar">
         {icon ? (

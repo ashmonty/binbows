@@ -7,9 +7,11 @@
   display: flex;
   align-items: center;
 
-  background-color: silver;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #dfdfdf;
+  background-color: var(--ui-gray);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px var(--ui-gray);
   padding: 2px;
+
+  user-select: none;
 }
 
 .startButton {
@@ -20,7 +22,16 @@
   align-items: center;
   justify-content: center;
   padding: 5px;
-  box-shadow: var(--button-box-shadow);
+}
+.startButton,
+.startButton:focus {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 5px !important;
+  outline: none;
+}
+.startButton.active {
+  box-shadow: var(--box-shadow-bottom-right);
 }
 
 .startButton .text {

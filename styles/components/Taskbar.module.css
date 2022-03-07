@@ -29,7 +29,6 @@
   min-width: fit-content !important;
   min-height: 0 !important;
   padding: 5px !important;
-  outline: none;
 }
 .startButton.active {
   box-shadow: var(--box-shadow-bottom-right);

@@ -8,7 +8,7 @@ import "98.css";
 import Start from "./StartMenu";
 import TaskbarEntry from "./TaskbarEntry";
 
-export default function Taskbar({ windows, setWindows }) {
+export default function Taskbar({ windows, setWindows, createWindow }) {
   const [clock, setClock] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   );
@@ -49,10 +49,10 @@ export default function Taskbar({ windows, setWindows }) {
           {windows.map((window, i) => (
             <React.Fragment key={i}>
               {React.createElement(TaskbarEntry, {
-                key: window.index,
-                index: window.index,
-                title: window.title,
-                icon: window.icon,
+                key: window.staticIndex,
+                staticIndex: window.staticIndex,
+                info: window.info,
+                windowManagerStates: window.windowManagerStates,
                 setWindows: setWindows,
                 windows,
               })}
@@ -62,7 +62,7 @@ export default function Taskbar({ windows, setWindows }) {
         <span className={styles.clock}>{clock}</span>
       </div>
 
-      <Start startState={startState} setStartState={setStartState} />
+      <Start startState={startState} setStartState={setStartState} createWindow={createWindow} />
     </>
   );
 }

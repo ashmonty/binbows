@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 
 import Taskbar from "/components/Taskbar";
-import Hello from "/components/programs/Hello";
-import WindowFrame from "/components/WindowFrame";
 
 import styles from "/styles/Screen.module.css";
 
 export default function Screen() {
   const [windows, setWindows] = useState([]);
 
-  function newWindow(componentName, title, icon) {
-    setWindows(
-      windows.concat({
-        componentName,
-        index: (windows?.[windows?.length - 1]?.index || 0) + 1,
+  function createWindow(componentName, title, icon) {
+    const newWindow = {
+      componentName,
+      staticIndex: (windows?.[windows?.length - 1]?.staticIndex || 0) + 1,
+      info: {
         title,
-        state: "open" /* open / maximized / minimized */,
         icon,
-      })
-    );
+      },
+      windowManagerStates: {
+        maximized: false /* Is the window maximized or is it draggable? (bool) */,
+        minimized: false /* Is the window minimized to the taskbar? (bool) */,
+      },
+    };
+    setWindows(windows.concat(newWindow));
   }
 
   return (
@@ -26,36 +28,22 @@ export default function Screen() {
       {windows.map((window, i) => (
         <React.Fragment key={i}>
           {React.createElement(window.componentName, {
-            key: window.index,
-            index: window.index,
-            title: window.title,
-            icon: window.icon,
+            key: window.staticIndex,
+            staticIndex: window.staticIndex,
+            info: window.info,
+            windowManagerStates: window.windowManagerStates,
             setWindows: setWindows,
+            createWindow,
             windows,
           })}
         </React.Fragment>
       ))}
 
-      <WindowFrame
-        title="Toolbox"
-        icon="https://win98icons.alexmeub.com/icons/png/tools_gear-1.png"
-        style={{ position: "absolute", top: "12px", right: "12px" }}
-      >
-        <p>Misc test stuff.</p>
-        <button
-          onClick={() =>
-            newWindow(
-              Hello,
-              "Hello",
-              "https://win98icons.alexmeub.com/icons/png/help_book_cool-1.png"
-            )
-          }
-        >
-          Create new Hello window
-        </button>
-      </WindowFrame>
-
-      <Taskbar setWindows={setWindows} windows={windows} />
+      <Taskbar
+        setWindows={setWindows}
+        windows={windows}
+        createWindow={createWindow}
+      />
     </div>
   );
 }

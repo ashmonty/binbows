@@ -13,7 +13,7 @@ export default function Screen() {
     setWindows(
       windows.concat({
         componentName,
-        index: windows.length,
+        index: (windows?.[windows?.length - 1]?.index || 0) + 1,
         title,
         state: "open" /* open / maximized / minimized */,
         icon,

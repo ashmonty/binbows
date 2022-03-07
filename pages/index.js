@@ -51,7 +51,7 @@ export default function Screen() {
             )
           }
         >
-          Add a new component
+          Create new Hello window
         </button>
       </WindowFrame>
 

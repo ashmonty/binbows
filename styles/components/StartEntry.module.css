@@ -1,0 +1,17 @@
+.startEntry {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 2px 8px;
+    margin: 2px 4px;
+}
+.startEntry:hover {
+    background: var(--ui-blue);
+}
+
+.startEntry p {
+    margin-left: 8px;
+}
+.startEntry:hover p {
+    color: #fff;
+}

@@ -1,2 +1,3 @@
-# website
-A Next.js-based recreation of WIndows 98 (WIP)
+# Binbows
+
+A Next.js based recreation of Windows 9X [WIP]

@@ -1,16 +1,24 @@
 {
-  "name": "monty.exe",
+  "name": "binbows",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8080"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "98.css": "^0.1.17",
-    "next": "^11.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "classnames": "^2.3.1",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-draggable": "^4.4.4",
+    "sharp": "^0.30.2"
+  },
+  "devDependencies": {
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0"
   }
 }

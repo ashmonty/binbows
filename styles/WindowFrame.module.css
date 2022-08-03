@@ -1,0 +1,24 @@
+.titleBarInfoWrapper {
+  display: grid;
+  grid-template-columns: 16px auto;
+  gap: 4px;
+  height: 100%;
+  align-items: center;
+}
+
+.titleBarInfoWrapper .titleBarText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fakeTitleBar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 9999999999;
+  transition: all 0.3s ease-in;
+}

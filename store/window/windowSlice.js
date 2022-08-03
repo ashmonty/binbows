@@ -11,13 +11,18 @@ export const windowSlice = createSlice({
   initialState: [],
   reducers: {
     newWindow: (state, action) => {
+      // we set the property isOnTop to false for all windows
+      state.forEach((window) => {
+        window.isOnTop = false;
+      });
+
       state.push({
         title: action?.payload?.title || "Hello World",
         component: action?.payload?.component || HelloWorld,
-        icon: action?.payload?.icon || "sensibleDefault",
+        icon: action?.payload?.icon || null,
         size: {
-          x: action?.payload?.size?.x || 256,
-          y: action?.payload?.size?.y || 512,
+          x: action?.payload?.size?.x || 300,
+          y: action?.payload?.size?.y || 91,
         },
         position: {
           x: action?.payload?.position?.x || (state.length + 1) * 24,
@@ -27,6 +32,7 @@ export const windowSlice = createSlice({
         maximized: action?.payload?.maximized || false,
         zIndex: state.length,
         index: state.length,
+        isOnTop: true, // since this is a new window, it's automatically on top
       });
     },
     closeWindow: (state, action) => {
@@ -44,25 +50,38 @@ export const windowSlice = createSlice({
       const index = getActualIndex(state, fakeIndex);
       state[index].icon = newProp;
     },
-    sizeX: (state, action) => {
-      const { index: fakeIndex, newProp } = action.payload;
+    setSize: (state, action) => {
+      const {
+        index: fakeIndex,
+        newProp: { x, y },
+        override,
+      } = action.payload;
       const index = getActualIndex(state, fakeIndex);
-      state[index].size.x += newProp;
-    },
-    sizeY: (state, action) => {
-      const { index: fakeIndex, newProp } = action.payload;
-      const index = getActualIndex(state, fakeIndex);
-      state[index].size.y = newProp;
+      if (state[index]) {
+        if (override) {
+          state[index].size.x = x;
+          state[index].size.y = y;
+        } else {
+          state[index].size.x += x;
+          state[index].size.y += y;
+        }
+      }
     },
     setPosition: (state, action) => {
       const {
         index: fakeIndex,
         newProp: { x, y },
+        override,
       } = action.payload;
       const index = getActualIndex(state, fakeIndex);
       if (state[index]) {
-        state[index].position.x += x;
-        state[index].position.y += y;
+        if (override) {
+          state[index].position.x = x;
+          state[index].position.y = y;
+        } else {
+          state[index].position.x += x;
+          state[index].position.y += y;
+        }
       }
     },
     toggleMinimize: (state, action) => {
@@ -78,6 +97,11 @@ export const windowSlice = createSlice({
     bringToFront: (state, action) => {
       const fakeIndex = action.payload;
       const index = getActualIndex(state, fakeIndex);
+
+      // we set the property isOnTop to false for all windows
+      state.forEach((window) => {
+        window.isOnTop = false;
+      });
 
       // If the window we're trying to bring to front hasn't been closed
       if (state[index]) {
@@ -100,7 +124,9 @@ export const windowSlice = createSlice({
           state[indexToModify].zIndex -= 1;
         });
 
+        // set the zIndex of the window to be in front, set isOnTop to true
         state[index].zIndex = state.length - 1;
+        state[index].isOnTop = true;
       }
     },
   },
@@ -113,8 +139,7 @@ export const {
   closeWindow,
   setTitle,
   setIcon,
-  sizeX,
-  sizeY,
+  setSize,
   setPosition,
   toggleMinimize,
   toggleMaximize,
